@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: profile-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: profile
+  ports:
+  - port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profile
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: profile
+  template:
+    metadata:
+      labels:
+        app: profile
+    spec:
+      containers:
+      - name: profile
+        image: airbenders/profile:latest 
+        # to avoid the warning
+        resources:
+        env:
+        - name: DATABASE_URL
+          value: "postgres://postgres:password@postgres-svc.default/profile"
+        - name: AUTH_URL
+          value: "auth-svc.default"
+        - name: RABBIT_URL
+          value: "amqp://guest:guest@rabbit-svc.default:5672/"
+        - name: DOMAIN
+          value: "real.encs.concordia.ca/profile"
+        ports:
+        - containerPort: 8080
