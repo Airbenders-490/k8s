@@ -30,7 +30,7 @@ spec:
         resources:
         env:
         - name: DB_HOST
-          value: postgres-svc
+          value: postgres-svc.default
         - name: DB_PORT
           value: "5432"
         - name: DB_USERNAME

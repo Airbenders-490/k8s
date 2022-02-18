@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: chat-svc
 spec:
+  type: LoadBalancer
   selector:
     app: chat
   ports:
