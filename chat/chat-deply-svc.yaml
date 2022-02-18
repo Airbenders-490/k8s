@@ -7,7 +7,7 @@ spec:
     app: chat
   ports:
   - port: 4040
-    targetPort: 4040
+    targetPort: 8080
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -29,7 +29,16 @@ spec:
           limits:
             memory: "1024Mi"
             cpu: "2000m"
-        # env:
-        # - name: 
+        env:
+        - name: CASSANDRA_CHAT_KEYSPACE
+          value: chat
+        - name: CASSANDRA_CHAT_TABLE
+          value: messages
+        - name: CASSANDRA_HOST
+          value: "real.encs.concordia.ca:3000"
+        - name: DB_HOST
+          value: real.encs.concordia.ca
+        - name: DB_PORT
+          value: "3000"
         ports:
         - containerPort: 4040
