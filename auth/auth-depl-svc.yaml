@@ -15,6 +15,7 @@ kind: Deployment
 metadata:
   name: auth
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: auth
@@ -44,10 +45,10 @@ spec:
               key: DB_PASSWORD
         - name: DB_NAME
           value: auth
-        - name: DB_KEY
+        - name: SECRET_KEY
           valueFrom:
             secretKeyRef:
               name: auth-secret
-              key: DB_KEY
+              key: SECRET_KEY
         ports:
         - containerPort: 3000
