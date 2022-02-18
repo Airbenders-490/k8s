@@ -41,5 +41,7 @@ spec:
           value: real.encs.concordia.ca
         - name: DB_PORT
           value: "3000"
+        - name: AUTH_URL
+          value: "http://auth-svc.default:3000/api/validate"
         ports:
         - containerPort: 4040
