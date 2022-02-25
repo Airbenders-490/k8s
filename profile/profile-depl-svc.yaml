@@ -35,7 +35,7 @@ spec:
         - name: AUTH_URL
           value: "http://auth-svc.default:3000/api/validate"
         - name: RABBIT_URL
-          value: "amqp://guest:guest@rabbit-svc.default:5672/"
+          value: "amqp://guest:guest@real.encs.concordia.ca:8080/"
         - name: DOMAIN
           value: "real.encs.concordia.ca/profile"
         ports:

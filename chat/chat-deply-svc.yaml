@@ -43,5 +43,7 @@ spec:
           value: "3000"
         - name: AUTH_URL
           value: "http://auth-svc.default:3000/api/validate"
+        - name: RABBIT_URL
+          value: "amqp://guest:guest@real.encs.concordia.ca:8080/"
         ports:
         - containerPort: 4040
