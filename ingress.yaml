@@ -9,6 +9,8 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "360"
   namespace: default
 spec:
+  tls:
+    - secretName: real-encs-concordia-ca-tls
   rules:
   - host: real.encs.concordia.ca
     http:
