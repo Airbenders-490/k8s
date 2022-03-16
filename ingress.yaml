@@ -9,13 +9,6 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "360"
   namespace: default
 spec:
-  ports:
-    - name: http
-      port: 80
-      targetPort: http
-    - name: https
-      port: 443
-      targetPort: https
   tls:
     - secretName: real-encs-concordia-ca-tls
       hosts:
@@ -24,6 +17,9 @@ spec:
   - host: real.encs.concordia.ca
     http:
       paths:
+      - backend:
+        serviceName: redirect
+        servicePort: 80
       - pathType: Prefix
         path: /chat(/|$)(.*)
         backend:
