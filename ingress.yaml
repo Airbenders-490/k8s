@@ -10,7 +10,9 @@ metadata:
   namespace: default
 spec:
   tls:
-    - secretName: real-encs-concordia-ca-tls
+    - hosts:
+      - real.encs.concordia.ca
+    secretName: real-encs-concordia-ca-tls
   rules:
   - host: real.encs.concordia.ca
     http:
