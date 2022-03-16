@@ -17,9 +17,6 @@ spec:
   - host: real.encs.concordia.ca
     http:
       paths:
-      - backend:
-        serviceName: redirect
-        servicePort: 80
       - pathType: Prefix
         path: /chat(/|$)(.*)
         backend:
@@ -30,6 +27,7 @@ spec:
       - pathType: Prefix
         path: /auth(/|$)(.*)
         backend:
+          servicePort: 80
           service:
             name: auth-svc
             port: 
