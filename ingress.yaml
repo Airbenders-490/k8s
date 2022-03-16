@@ -27,7 +27,6 @@ spec:
       - pathType: Prefix
         path: /auth(/|$)(.*)
         backend:
-          servicePort: 80
           service:
             name: auth-svc
             port: 
