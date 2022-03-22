@@ -76,9 +76,6 @@ spec:
               name: chat-secret
               key: SMTP_PORT
         - name: REJECTION_TEMPLATE_PATH
-          valueFrom:
-            secretKeyRef:
-              name: chat-secret
-              key: REJECTION_TEMPLATE_PATH
+          value: "../../static/rejection_template.html"
         ports:
         - containerPort: 4040
