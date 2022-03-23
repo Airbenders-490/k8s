@@ -103,3 +103,10 @@ CREATE TABLE review_tag (
         REFERENCES tag(name)
 );
 
+CREATE TABLE public.confirmation (
+    token text PRIMARY KEY NOT NULL,
+    st_id text not null REFERENCES student(id),
+    sc_id text not null REFERENCES school(id),
+    created_at timestamp
+);
+
