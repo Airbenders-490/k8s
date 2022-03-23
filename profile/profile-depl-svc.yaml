@@ -38,5 +38,30 @@ spec:
           value: "amqp://guest:guest@real.encs.concordia.ca:8080/"
         - name: DOMAIN
           value: "real.encs.concordia.ca/profile"
+        - name: EMAIL_FROM
+          valueFrom:
+            secretKeyRef:
+              name: chat-secret
+              key: EMAIL_FROM
+        - name: USER
+          valueFrom:
+            secretKeyRef:
+              name: chat-secret
+              key: USER
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: chat-secret
+              key: PASSWORD
+        - name: SMTP_HOST
+          valueFrom:
+            secretKeyRef:
+              name: chat-secret
+              key: SMTP_HOST
+        - name: SMTP_PORT
+          valueFrom:
+            secretKeyRef:
+              name: chat-secret
+              key: SMTP_PORT
         ports:
         - containerPort: 8080
