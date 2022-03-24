@@ -9,14 +9,6 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "360"
   namespace: default
 spec:
-  tcp:
-  - match:
-    - port: 2525
-    route:
-    - destination:
-      host: smtp.mailtrap.io
-      port:
-        number: 2525
   rules:
   - host: real.encs.concordia.ca
     http:
