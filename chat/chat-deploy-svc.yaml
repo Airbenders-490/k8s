@@ -3,14 +3,6 @@ kind: Service
 metadata:
   name: chat-svc
 spec:
-  tcp:
-  - match:
-    - port: 2525
-    route:
-    - destination:
-      host: smtp.mailtrap.io
-      port:
-        number: 2525
   type: LoadBalancer
   selector:
     app: chat
