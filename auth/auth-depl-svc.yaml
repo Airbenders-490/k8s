@@ -50,5 +50,9 @@ spec:
             secretKeyRef:
               name: auth-secret
               key: SECRET_KEY
+        - name: AUTH0_DOMAIN
+          value: smartiesapp.us.auth0.com
+        - name: AUTH0_AUDIENCE
+          value: https://smartiesapp.com
         ports:
         - containerPort: 3000
