@@ -63,5 +63,9 @@ spec:
             secretKeyRef:
               name: chat-secret
               key: SMTP_PORT
+        - name: AUTH0_DOMAIN
+          value: smartiesapp.us.auth0.com
+        - name: AUTH0_AUDIENCE
+          value: https://smartiesapp.com
         ports:
         - containerPort: 8080
